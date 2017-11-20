@@ -5,7 +5,7 @@
     p {{ 'Hola' + 'Mundo' }}
     p {{ person.name }}
     p {{ person.name.toUpperCase() }}
-    p {{ true? 'true' : 'false' }}
+    p {{ true? 'true' : 'falsedad' }}
 </template>
 
 <script>
