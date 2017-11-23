@@ -1,28 +1,57 @@
 <template lang="pug">
   #app
-    h1 {{ msg }}
-    p {{ 1+1 }}
-    p {{ 'Hola' + 'Mundo' }}
-    p {{ person.name }}
-    p {{ person.name.toUpperCase() }}
-    p {{ true? 'true' : 'falsedad' }}
+    section.section
+      nav.nav.has-shadow
+        .container
+          input.input.is-large(
+            type="text", 
+            placeholder="Buscar canciones" 
+            v-model="searchQuery")
+          a.button.is-info.is-large(@click="search") Buscar
+          a.button.is-danger.is-large &times;
+          p
+            small {{ searchMessage }}
+      
+      .container.results
+        .columns
+          .cloumn(v-for="t in tracks") {{ t.name}} - {{ t.artist}}
 </template>
 
 <script>
+
+const tracks = [
+  {name: 'Muchacha', artist: 'Luis Alberto Espineta'},
+  {name: 'Aca en el baile', artist: 'Pepo'},
+  {name: 'I was made', artist: 'Kiss'}
+]
+
 export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App!',
+      searchQuery: '',
+      tracks: []
+    }
+  },
 
-      person: {
-        name: 'Alan'
-      }
+  computed: {
+    searchMessage () {
+      return `Encontrados: ${this.tracks.length}`
+    }
+  },
+
+  methods: {
+    search () {
+      this.tracks = tracks
     }
   }
 }
 </script>
 
 <style lang="scss">
-  @import './scss/main.scss'
+  @import './scss/main.scss';
+
+  .results {
+    margin-top: 50px
+  }
 </style>
