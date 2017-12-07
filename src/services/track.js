@@ -1,14 +1,15 @@
-import platziMusicService from './platziMusicService'
+/* eslint-disable eol-last */
+import platziMusicService from './platzi-music'
 
 const trackService = {}
 
-trackService.search = function(q) {
+trackService.search = function (q) {
   const type = 'track'
 
-  platziMusicService.get('/search', {
-    params: { q, type}
+  return platziMusicService.get('/search', {
+    params: {q, type}
   })
-  .then((res) => res.data)
+    .then((res) => res.data)
 }
 
 export default trackService

@@ -1,5 +1,6 @@
+/* eslint-disable eol-last */
 const configService = {
-  apiUrl: 'http://platzi-music.now.sh'
+  apiUrl: 'https://platzi-music-api.now.sh'
 }
 
 export default configService

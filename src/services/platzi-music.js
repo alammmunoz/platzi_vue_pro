@@ -1,3 +1,5 @@
+/* eslint-disable eol-last */
+/* eslint-disable no-trailing-spaces */
 import trae from 'trae'
 import configService from './config'
 
